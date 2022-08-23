@@ -1,0 +1,25 @@
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap');
+
+@font-face {
+    font-family: 'Monofonto';
+    src: url("../assets/fonts/monofontorg.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'RoswellFourITC';
+    src: url("../assets/fonts/roswell_four_itc.ttf") format('truetype');
+}
+
+@import './colors';
+
+body{
+    margin: 0;
+    font-family: 'IBM Plex Serif', serif;
+    color: $black_text;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}

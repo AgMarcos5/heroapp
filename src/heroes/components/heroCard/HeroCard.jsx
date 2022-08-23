@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './herocard.scss'
 
 export const HeroCard = ({
     id,
@@ -14,28 +15,23 @@ export const HeroCard = ({
   return (
     <div className='col animate__animated animate__fadeIn'>
         <div className='card'>
-            <div className='row no-glutters'>
-                <div className='col-4'>
-                    <img className='card-img' src={images.sm} alt={name} />
-                </div>
-                <div className='col-8'>
+                    <img className='card-img' src={images.md} alt={name} />
+                <div className='card-container'>
                     <div className='card-body'>
                         <h5 className='card-title'>{name}</h5>
                         <p className='card-text'>{biography.fullName}</p>
-                        <p>{JSON.stringify(powerstats)}</p>
-                        <p className='card-text'>
-                            <small className='text-muted'>
-                                {biography.firstAppearance}
-                            </small>
-                        </p>
 
                         <Link to={`/hero/${id}`}>
-                            More info
+                        <div className='info-button'>
+                            <p>More info</p>
+                            <span >
+                            </span>
+                        </div>
+                        
                         </Link>
 
                     </div>
                 </div>
-            </div>
         </div>
     </div>
   )

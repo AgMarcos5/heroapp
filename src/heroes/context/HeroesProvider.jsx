@@ -14,7 +14,6 @@ export const HeroesProvider = ({children}) => {
         if(isLoading) return
         name = name.toLowerCase().trim()
         if(name.length === 0) return [];
-        console.log(name, data)
         return data?.filter(
           hero => hero.name.toLowerCase().includes(name)
         )
@@ -33,7 +32,6 @@ export const HeroesProvider = ({children}) => {
     const getPublishers = () => {
         const publishers = data?.map(hero => hero.biography.publisher)
             .filter((value, index, self) => self.indexOf(value) === index && value != null)
-        console.log(publishers)
         return publishers
     }
 

@@ -1,10 +1,12 @@
 import React, { useMemo, useState } from 'react'
 import { useCounter } from '../../hooks/useCounter'
 import { useHeroes } from '../../hooks/useHeroes'
-import { Pagination } from '../../ui/components/Pagination'
-import { HeroCard } from './HeroCard'
-import { Publishers } from './Publishers'
-import { SortHeroes } from './SortHeroes'
+import { Pagination } from '../../ui/components/pagination/Pagination'
+import { HeroCard } from './heroCard/HeroCard'
+import { Publishers } from './publishers/Publishers'
+import { SortHeroes } from './sort/SortHeroes'
+
+import './herolist.scss'
 
 const sortPowerStats = ["intelligence","strength","speed","durability","power","combat"]
 
@@ -37,12 +39,16 @@ export const HeroList = ({publisher}) => {
   
   return (
     <>
-    <Publishers/>
-    <div className="products_menu">
-        <span><SortHeroes active={sort} onChange={setSort} /></span>
-        <span><Pagination page={counter} decrement={decrement} increment={increment} lastPage={lastPage}/></span>
+    <div className='publishersNav'>
+      <div className="navOptions">
+        <Publishers/>
+      </div>
+      <div className="navOptions">
+        <SortHeroes active={sort} onChange={setSort} />
+        <Pagination page={counter} decrement={decrement} increment={increment} lastPage={lastPage}/>
+      </div>
     </div>
-    <div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3'>
+    <div className='heroesContainer'>
       
         {
             sortedHeroes

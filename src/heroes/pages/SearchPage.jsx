@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 
 import queryString from 'query-string'
-import { HeroCard } from "../components/HeroCard";
+import { HeroCard } from "../components/heroCard/HeroCard";
 import { useHeroes } from "../../hooks/useHeroes";
 
 export const SearchPage = () => {

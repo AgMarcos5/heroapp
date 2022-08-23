@@ -1,5 +1,7 @@
 
 import React from 'react'
+import { DropDown } from '../../../ui/components/dropdown/DropDown'
+import './sortheroes.scss'
 
 const sortPowerStats = ["intelligence","strength","speed","durability","power","combat"]
 
@@ -8,11 +10,7 @@ export const SortHeroes = ({active, onChange}) => {
         <>
         <div className="sort_container">
             <div className="sort_text">Sort by:</div>
-            {sortPowerStats.map(option => 
-                <div key={option} className={`sort_option ${option === active ? 'active' : ''}`} onClick={() => onChange(option)}>
-                    <span>{option}</span> 
-                </div>
-            )}
+            <DropDown options={sortPowerStats} onChange={onChange}/>
         </div>
         </>
     )

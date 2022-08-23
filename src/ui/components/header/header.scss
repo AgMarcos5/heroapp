@@ -1,0 +1,49 @@
+@import '../../../styles/colors';
+
+header{
+    text-transform: uppercase;
+    font-family: "RoswellFourITC";
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: -1;
+
+    h1{ 
+        font-size: 12.2em;
+        display: inline-block;
+        max-width: min-content;
+        text-align: left;
+        line-height: 1;
+    }
+
+    .headerImg{
+        position: absolute;
+        pointer-events: none;
+        width: 100%;
+        top: -60px;
+        img{
+            width: auto;
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    
+    .headerInfo{
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        text-align: right;
+        h2{ 
+            font-size: 8em;
+            margin: 0;
+        }
+        ul{
+            font-size: 2em;
+            list-style-type: none;
+            margin: 0;
+        }
+    }
+}
