@@ -44,7 +44,7 @@ export const HeroList = ({publisher}) => {
         <Publishers/>
       </div>
       <div className="navOptions">
-        <SortHeroes active={sort} onChange={setSort} />
+        <SortHeroes active={sort} onChange={setSort}/>
         <Pagination page={counter} decrement={decrement} increment={increment} lastPage={lastPage}/>
       </div>
     </div>

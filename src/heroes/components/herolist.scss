@@ -1,7 +1,8 @@
 @import '/src/styles/colors';
 
 .publishersNav{
-    background-color: $black_background;
+    backdrop-filter: blur(5px);
+    background: #0f0e11fa;
     border-radius:15px;
     height: 110px;
     display: flex;
@@ -14,6 +15,8 @@
     font-family: verdana;
     font-weight: 100;
     font-size: .8em;
+    position: relative;
+    z-index: 2;
 
     .navOptions{
         display: flex;
@@ -28,5 +31,4 @@
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 20px;
-    margin: 20px;
 }

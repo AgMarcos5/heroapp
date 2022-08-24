@@ -1,4 +1,8 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react'
+import React, { useLayoutEffect, useState, useRef } from 'react'
+
+
+
+import { motion, useScroll, useTransform } from "framer-motion"
 
 import spidermanImg from "../../../assets/img/spiderman.png"
 import batmanImg from "../../../assets/img/batman.png"
@@ -42,8 +46,14 @@ const data = [
 export const Header = ({publisher}) => {
 
   const [index,setIndex] = useState(0)
-
   const [info,setInfo] = useState(data[0])
+
+  
+  const ref = useRef(null);
+  const { scrollY,scrollYProgress } = useScroll();
+
+  const scaleHero = useTransform(scrollY, [0,1800], [1,1.3]);
+  const translateHero = useTransform(scrollY,[0,1800],[0,125]);
   
   useLayoutEffect( () => {
     if(publisher.toLowerCase().includes("dc"))
@@ -62,13 +72,48 @@ export const Header = ({publisher}) => {
     }
   }, [publisher])
 
+  const variants = {
+    hidden: { 
+      y: -100,
+      opacity: 0.6 ,
+      scale: 0.9,
+    },
+    visible: { 
+      y: 0,
+      opacity: 1 , 
+      scale:1,     
+      transition: {
+        ease: "easeInOut",
+        duration: 0.5,
+      }
+    },
+  }
+
   return (
-    <header>
-      <h1>{info.publisher}</h1>
-      <div className='headerImg'>
+    <>
+      
+    <header ref={ref}>
+      <motion.h1
+        initial={{opacity:0, y:20}}
+        animate={{ opacity: 1, y:0 }}
+        transition={{ ease: "easeIn", duration: 0.5, delay: 0.1 }}
+      >
+        {info.publisher}
+      </motion.h1>
+
+      <motion.div 
+        initial="hidden"
+        animate="visible"
+        variants={variants}
+        style={{scale:scaleHero, translateY:translateHero}} className='headerImg'> 
         <img src={info.img} alt="header"/>
-      </div>
-      <div className='headerInfo'>
+      </motion.div>
+
+      <motion.div className='headerInfo'
+        initial={{opacity:0, y:20}}
+        animate={{ opacity: 1, y:0 }}
+        transition={{ ease: "easeIn", duration: 0.5, delay: 0.1}}
+      >
         <h2>
           {info.hero.name}
         </h2>
@@ -80,7 +125,9 @@ export const Header = ({publisher}) => {
           <li>Power: {info.hero.powerstats.power}</li>
           <li>Combat: {info.hero.powerstats.combat}</li>
         </ul>
-      </div>      
+      </motion.div>      
     </header>
+    <span ></span>
+    </>
   )
 }

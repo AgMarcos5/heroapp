@@ -1,0 +1,33 @@
+.pagination-container{
+    
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+
+    button{
+            
+        &:first-child{
+            transform: rotate(180deg);
+        }
+
+        border: 0;
+        cursor: pointer;
+        padding: 11px 14px;
+        border-radius: 5px;
+        display: flex;
+        background: transparent;
+        &.disable{
+            opacity: .6;
+            pointer-events: none;
+        }
+
+        &:hover{
+            background: #2c2a2e;
+        }
+    }
+
+    .page-color{
+        color:#eeeeee;
+    }
+}

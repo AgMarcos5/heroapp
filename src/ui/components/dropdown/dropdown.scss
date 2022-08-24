@@ -20,3 +20,120 @@ select{
         transition: .25s all ease;
     }
 }
+
+
+.select{
+    position: relative;
+    z-index: 1;
+    .select-field{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding:  0 12px;
+        border-radius: 8px;
+        box-shadow: 0 0 3px rgba(0,0,0,.1);
+        transition: 1s;
+            
+        background: #0d0c0e;
+        border: 1px solid #26242a;
+
+        &:hover{
+            border: 1px solid #413d48;
+            input::placeholder{
+                color: rgb(160, 160, 160);
+            }
+        }
+
+        input{
+            border: 0;
+            line-height: 36px;
+            padding: 6px 18px;
+            border-radius: 8px;
+            font-size: 16px;
+            background: transparent;
+            cursor: pointer;
+            &:focus{
+                outline: none;
+            }
+
+            &::placeholder{
+                color: #68646e;
+            }
+        }
+
+        button{
+            border: 0;
+            background: transparent;
+            color: white;
+            font-size: 24px;
+            padding: 4px;
+            padding-top: 10px;
+            cursor: pointer;
+            display: flex;
+
+            img{
+                transform: rotate(90deg);
+                width: 8px;
+                transition: 0.14s;
+
+                &.rotate{
+                    transform: rotate(-90deg);
+                }
+            }
+
+        }
+    }
+
+    .select-list{
+        margin-top: 16px;
+        background: #141316;
+        color: white;
+        box-shadow: 0 0 3px rgba(0,0,0,0.1);
+        width: 100%;
+
+        position: absolute;
+        opacity: 0;
+        transition: .5s;
+        pointer-events: none;
+
+            
+        overflow-y: auto;
+        max-height: 200px;
+
+        &.show{
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .select-item{
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            align-items: center;
+            padding: 10px 16px;
+            cursor: pointer;
+            margin: 7px;
+
+            &:hover{
+                background: #3f41cc;
+                border-radius: 8px;
+            }
+        }
+
+        &::-webkit-scrollbar {
+            width: 10px;
+          }
+          
+        &::-webkit-scrollbar-track {
+            background: #141316; 
+        }
+           
+        &::-webkit-scrollbar-thumb {
+            background: #39383a; 
+            &:hover{
+                background: #232224; 
+            }
+        }
+          
+    }
+}

@@ -10,7 +10,7 @@ export const SortHeroes = ({active, onChange}) => {
         <>
         <div className="sort_container">
             <div className="sort_text">Sort by:</div>
-            <DropDown options={sortPowerStats} onChange={onChange}/>
+            <DropDown options={sortPowerStats} onChange={onChange}  text="intelligence"/>
         </div>
         </>
     )
