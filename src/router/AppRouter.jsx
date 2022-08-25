@@ -1,14 +1,20 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import { LoginPage } from '../auth/pages/LoginPage'
 import { HeroesRoutes } from '../heroes/routes/HeroesRoutes'
 import { PrivateRoute } from './PrivateRoute'
 import { PublicRoute } from './PublicRoute'
 
+
+import { AnimatePresence } from "framer-motion";
+
 export const AppRouter = () => {
+  
+  const location = useLocation();
   return (
     <>        
-    <Routes>
+    <AnimatePresence exitBeforeEnter>
+    <Routes location={location} key={location.pathname}>
 
       <Route 
         path='login' 
@@ -29,6 +35,7 @@ export const AppRouter = () => {
       />
 
     </Routes>
+    </AnimatePresence>
     </>
   )
 }

@@ -3,7 +3,7 @@
 
 @font-face {
     font-family: 'Monofonto';
-    src: url("../assets/fonts/monofontorg.ttf") format('truetype');
+    src: url("../assets/fonts/monofonto-rg.ttf") format('truetype');
 }
 
 @font-face {
@@ -13,11 +13,9 @@
 
 @import './colors';
 
-html {
-    overflow-y: scroll;
-  }
-  
+
 body{
+    overflow-y: scroll;
     margin: 0;
     font-family: 'IBM Plex Serif', serif;
     color: $black_text;
