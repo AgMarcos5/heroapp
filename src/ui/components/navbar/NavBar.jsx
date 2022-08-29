@@ -41,6 +41,7 @@ export const Navbar = () => {
   }, [show])
 
   return (
+    <>
     <nav>
       <Link to="/" className="title">Hero App</Link>
       <div className="options">
@@ -61,5 +62,8 @@ export const Navbar = () => {
         </div>
       </div>
     </nav>
+    <div className="hr"></div>
+    </>
+    
   );
 };

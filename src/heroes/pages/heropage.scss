@@ -1,0 +1,180 @@
+@import '../../styles/colors';
+
+.hero_page{
+    text-align: center;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 20px;
+
+    .col-1{
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+    .col-2{
+        width: 100%;
+        max-width: 450px;
+        text-align: left;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        color: #23262f;
+        
+        .card-title{
+            color: #23262f;
+            font-family: "RoswellFourITC";
+            font-size: 6em;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+        .card-text{
+            font-family: 'Roboto';
+            font-size: 1.5em;
+            color: #979daa;
+            font-style: italic;
+            margin-top: -9px;
+        }
+
+
+        .appearance{
+            display: flex;
+            margin-bottom: 32px;
+            padding: 6px;
+            border-radius: 20px;
+            box-shadow: inset 0 0 0 2px #e6e8ec;
+            justify-content: center;
+            align-items: center;
+            span{
+                padding: 6px 12px;
+                background: none;
+                font-family: "DM Sans",sans-serif;
+                font-size: 14px;
+                line-height: 1.14286;
+                font-weight: 700;
+                color: #777e90;
+            }
+        }
+        .powerstats{
+            border-radius: 16px;
+            box-shadow: 0 64px 64px -24px rgb(31 47 70 / 12%);
+            border: 1px solid #e6e8ec;
+            padding-top: 10px;
+        }
+
+        .publisher{
+            .table-container {
+                margin: 1em auto;
+                width: 100%;
+                max-width: 600px;
+                border-collapse: collapse;
+              }
+              td {
+                border: 0;
+                padding: 0.5em;
+              }
+              
+              .flex-row {
+                width: 70%;
+                &.first{
+                    width: 30%;
+                }
+              }
+              
+              .flex-row, .flex-cell {
+                text-align: left;
+              }
+        }
+    }
+
+    .card{
+        border-radius: 5px;
+        display: flex;
+        background: white;
+        transition: 1s;
+        position: relative;
+        max-width: 450px;
+
+        &:hover{
+            background: #e6e6e6;
+        }
+
+        .card-img{
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        .card-container{
+            opacity: 0;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            border-radius: 10px;
+            background: linear-gradient(180deg, rgba(28,28,36,0) 28%, rgba(14,14,18,1) 100%);
+        }
+
+        .card-body{
+            margin: 20px;
+        }
+
+        .card-title{
+            font-family: "RoswellFourITC";
+            font-size: 4em;
+            margin: 0;
+            color: white;
+            text-shadow: 1px 1px 7px rgb(53 54 68 / 66%);
+            letter-spacing: 1px;
+        }
+        .card-text{
+            font-family: verdana;
+            font-size: 1em;
+            color: #b9b9b9;
+            font-style: italic;
+            margin-top: 0;
+        }
+
+    }
+
+}
+
+
+@media (max-width:974px)
+{
+    .hero_page{
+        
+        .col-2 .card-title, .col-2 .card-text{
+            display: none;
+        }
+
+        .col-1 .card-container{
+            opacity: 1 !important;
+        }
+
+        
+    .col-2{
+        .publisher{
+            td {
+                width: auto;
+                display: block;
+                border: 0;
+                border-bottom: solid 1px #e6e8ec;
+            }
+            .flex-row {
+                width: 100%;
+                &.first{
+                    
+                width: 100%;
+                }
+            }
+        }
+    }
+
+      
+    }
+}
+
