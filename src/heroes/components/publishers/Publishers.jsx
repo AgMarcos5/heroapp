@@ -11,22 +11,18 @@ import dcImgHover from '../../../assets/img/dc_hover.png'
 
 import { DropDown } from '../../../ui/components/dropdown/DropDown';
 
-export const Publishers = memo(() => {
+export const Publishers = memo(({publishers, onChange}) => {
 
     const [hover,setHover] = useState('')
-    const {getPublishers} = useHeroes()
+    
+    //const {getPublishers} = useHeroes()
 
-    const publishers = getPublishers()
+    //const publishers = getPublishers()
 
     
-    const navigate = useNavigate();
-
-    const handleChangePublisher = (publisher) => {
-      navigate(`/${publisher}`)
-    }
 
   return (
-    <>
+    <div className='publishers-container'>
       <NavLink className="nav-item" to="/marvel">
         <img onMouseOver={()=>setHover('marvel')} onMouseOut={()=>setHover('')} alt="marvel comics" 
           src={hover === 'marvel' ? marvelImgHover : marvelImg } 
@@ -38,8 +34,7 @@ export const Publishers = memo(() => {
         />
       </NavLink>
 
-      <DropDown options={publishers} onChange={handleChangePublisher} text="Select publisher"/>
 
-    </>
+    </div>
   )
 })

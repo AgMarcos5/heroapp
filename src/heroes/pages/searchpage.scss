@@ -1,0 +1,63 @@
+@import '../../styles/colors';
+
+.search_page{
+    text-align: center;
+
+    font-family: "Roboto", sans-serif;
+
+    .search-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        form{
+            position: relative;
+            display: flex;
+            align-items: center;
+            input{
+                border: 0;
+                width: 250px;
+                height: 50px;
+                background: #e1e1e1;
+                border-radius: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0 100px 0 50px;
+                font-weight: 400;
+                &:focus{
+                    outline: 6px solid rgb(153 153 153 / 21%);
+                }
+            }
+            button{
+                border: 0;
+                border-radius: 50px;
+                padding: 10px 20px ;
+                background: $blue;
+                color: white;
+                position: absolute;
+                right: 10px;
+                font-weight: 400;
+                cursor: pointer;
+                &:hover{
+                    background: #3032a1;
+                }
+            }
+        }
+
+    }
+
+    .results{
+        margin-top: 50px;
+        margin-bottom: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        justify-content: center;
+    }
+
+    
+    .alert{        
+        width: 100%;
+        text-align: center;
+    }
+}

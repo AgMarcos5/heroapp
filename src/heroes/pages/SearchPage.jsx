@@ -6,6 +6,8 @@ import queryString from 'query-string'
 import { HeroCard } from "../components/heroCard/HeroCard";
 import { useHeroes } from "../../hooks/useHeroes";
 
+import './searchpage.scss'
+
 export const SearchPage = () => {
   const {getHeroByName} = useHeroes()
   const navigate = useNavigate();
@@ -27,13 +29,9 @@ export const SearchPage = () => {
   }
 
   return (
-    <>
+    <div className="search_page">
       <h1>Search</h1>
-      <hr />
-      <div className="row">
-        <div className="col-5">
-          <h4>Searching</h4>
-          <hr />
+        <div className="search-container">
           <form
             onSubmit={onSearchSubmit}
           >
@@ -46,13 +44,11 @@ export const SearchPage = () => {
               value={searchText}
               onChange={onInputChange}
             />
-            <button className="btn btn-outline-primary mt-1"> Search</button>
+            <button> Search</button>
           </form>
         </div>
 
-        <div className="col-7">
-          <h4>Results</h4>
-          <hr/>
+        <div className="results">
           <div 
             className="alert alert-primary"
             style={{display: q === '' ? '' : 'none'}}
@@ -75,7 +71,6 @@ export const SearchPage = () => {
           }
 
         </div>
-      </div>
-    </>
+    </div>
   );
 };

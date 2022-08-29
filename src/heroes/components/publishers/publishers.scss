@@ -1,0 +1,11 @@
+.publishers-container{
+    display: flex;
+    gap: 10px;
+}
+
+@media (max-width:300px)
+{
+    .publishers-container img{
+        height: 40px;
+    }
+}

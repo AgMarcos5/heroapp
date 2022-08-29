@@ -7,13 +7,21 @@ import { Publishers } from './publishers/Publishers'
 import { SortHeroes } from './sort/SortHeroes'
 
 import './herolist.scss'
+import { useViewport } from '../../hooks/useViewport'
+import { useNavigate } from 'react-router-dom'
+import { DropDown } from '../../ui/components/dropdown/DropDown'
+
+import filter from '../../assets/img/filter.png'
 
 const sortPowerStats = ["intelligence","strength","speed","durability","power","combat"]
 
 
 export const HeroList = ({publisher}) => {
 
-  const {getHeroesByPublishers} = useHeroes()
+  const {getPublishers, getHeroesByPublishers} = useHeroes()
+  
+  const publishers = getPublishers()
+
   const heroes = getHeroesByPublishers(publisher)
 
   const [sort,setSort] = useState(sortPowerStats[0]);
@@ -37,19 +45,54 @@ export const HeroList = ({publisher}) => {
   const lastPage = Math.ceil(sortedHeroes?.length / maxHeroes);
 
   
+  const navigate = useNavigate();
+
+  const handleChangePublisher = (publisher) => {
+    navigate(`/${publisher}`)
+  }
+  
+  const {width} = useViewport() 
+
+  const [showFilter,setShowFilter] = useState(false)
+
   return (
     <>
     <div className='publishersNav'>
-      <div className="navOptions">
-        <Publishers/>
-      </div>
-      <div className="navOptions">
-        <SortHeroes active={sort} onChange={setSort}/>
-        <Pagination page={counter} decrement={decrement} increment={increment} lastPage={lastPage}/>
-      </div>
-    </div>
-    <div className='heroesContainer'>
+    {
+      width < 1070 ? 
+      (<>
+        {/* Mobile navbar */}
+        <div className="navOptions">
+          <Publishers onChange={handleChangePublisher}/>
+          <div style={{display: 'flex'}}>
+          <Pagination page={counter} decrement={decrement} increment={increment} lastPage={lastPage}/>
+          <button className="filter" onClick={() => setShowFilter(!showFilter)}> 
+                <img src={filter} alt="filter"/> 
+          </button>
+          </div>
+        </div>
+        <div className={`navOptions ${showFilter ? "" : "hide"}`}>
+          <DropDown options={publishers} onChange={handleChangePublisher} text="Select publisher"/>
+          <SortHeroes active={sort} onChange={setSort}/>
+        </div>
+      </>)
+      :
+      (<>
+        <div className="navOptions">
+          <Publishers onChange={handleChangePublisher}/>
+          <DropDown options={publishers} onChange={handleChangePublisher} text="Select publisher"/>
+        </div>
+        <div className="navOptions">
+          <SortHeroes active={sort} onChange={setSort}/>
+          <Pagination page={counter} decrement={decrement} increment={increment} lastPage={lastPage}/>
+        </div>
+      </>)
+    }
       
+    </div>
+
+
+    <div className='heroesContainer'>
         {
             sortedHeroes
             ?.slice( (counter-1)*maxHeroes , (counter-1)*maxHeroes + maxHeroes )

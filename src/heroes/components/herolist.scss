@@ -22,6 +22,22 @@
         display: flex;
         align-items: center;
         gap: 10px;
+        &.hide{
+            display: none;
+        }
+    }
+
+    
+    .filter{
+        border: 0;
+        cursor: pointer;
+        padding: 11px 14px;
+        border-radius: 5px;
+        display: flex;
+        background: transparent;
+        &:hover{
+            background: #2c2a2e;
+        }
     }
 }
 
@@ -32,4 +48,43 @@
     justify-content: space-between;
     gap: 20px;
     min-height: 600px;
+}
+
+@media (max-width:1069px)
+{
+    .heroesContainer{
+        
+    justify-content: center;
+    }
+    .publishersNav{
+        
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0;
+    }
+    .navOptions{
+        width: 100%;
+        justify-content: space-around;
+    }
+}
+
+
+@media (max-width:720px)
+{
+  
+    .navOptions:nth-child(2)
+    {
+        flex-direction: column;
+        .sort_text{
+            display: none;
+        }
+    }
+}
+
+
+@media (max-width:370px)
+{
+    .publishersNav{
+        border-radius: 0;
+    }
 }

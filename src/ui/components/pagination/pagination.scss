@@ -31,3 +31,11 @@
         color:#eeeeee;
     }
 }
+
+
+@media (max-width:579px)
+{
+    .page{
+        display: none;
+    }
+}
