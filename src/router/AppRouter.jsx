@@ -17,7 +17,7 @@ export const AppRouter = () => {
     <Routes location={location} key={location.pathname}>
 
       <Route 
-        path='login' 
+        path='/login' 
         element={
         <PublicRoute>
           <LoginPage/>
