@@ -101,14 +101,17 @@ export const LoginPage = () => {
       </div>
 
       <motion.div 
-        className='login-bg'
+        className='login-bg-container'
         key="bg"
         initial={{y: 200,opacity: .8}}
         animate={animation}
         exit={{ scale: 4, opacity: 0, transition: {
           duration: 2, 
     } }}
-      ></motion.div>
+      >
+        <div 
+        className='login-bg'></div>
+      </motion.div>
       </div>      
     </> 
   )

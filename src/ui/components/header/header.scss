@@ -47,3 +47,34 @@ header{
         }
     }
 }
+
+
+@media (max-width:1069px)
+{
+    header {
+        h1{
+            width: 100%;
+            max-width: 100%;
+            text-align: center;
+            font-size: 24vw;
+            z-index: 2;
+            margin: 0;
+            height: 45vh;
+            display: flex;
+            align-items: self-end;
+            justify-content: center;
+            align-content: center;
+        }
+        .headerInfo{
+            display: none;
+        }
+
+        .headerBgFilter {
+            width: 100%;
+            position: absolute;
+            height: 100vh;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.09) 18%, rgba(255, 255, 255, 0.75) 56%);
+            z-index: 1;
+        }
+    }
+}

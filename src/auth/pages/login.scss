@@ -26,7 +26,7 @@
       h1 {
         text-transform: uppercase;
         font-family: "RoswellFourITC";
-        font-size: 200px;
+        font-size: min(200px, 24vw);
         margin: 40px;
         border-bottom: 8px solid transparent;
 
@@ -65,16 +65,71 @@
       }
     }
 
-    .login-bg{
-        position: absolute;
+    .login-bg-container{
+      position: absolute;
         top: 0;
         left: 0;
+        z-index: -1;
+        
+        height: 100%;
+        width: 100%;
+      .login-bg{
+        
         background-image: url("/src/assets/img/spiderman_background.png");
         background-repeat: no-repeat;
         background-position: right top;
         height: 100%;
         width: 100%;
-        z-index: -1;
+      }
+    }
+    
+  }
+}
+
+@media (max-width:1860px)
+{
+  .login .container {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100vh;
+    margin-top: 0;
+    .login-bg-container{
+      top: 200px;
+      .login-bg{
+        background-position: center top;
+      }
     }
   }
+  
+}
+
+@media (max-width:930px)
+{
+  .login .container .login-bg-container .login-bg{
+    background-position: left top;
+  }
+}
+
+@media (max-width:520px)
+{
+  .login .container .login-content 
+  {
+    margin-top: 30px;
+
+    h1 img{
+      margin: -45px;
+    }
+    form{
+      align-items: center;
+      flex-direction: column;
+      margin-top: 20px;
+      input, button{
+        width: 200px;
+      }
+    }
+  } 
 }

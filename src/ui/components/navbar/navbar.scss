@@ -124,3 +124,12 @@ nav {
 
     
 }
+
+
+@media (max-width:1069px)
+{
+    nav{
+        backdrop-filter: blur(5px);
+        background: hsl(0deg 0% 100% / 10%) !important;
+    }
+}

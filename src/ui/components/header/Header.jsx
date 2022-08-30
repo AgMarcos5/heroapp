@@ -101,6 +101,7 @@ export const Header = ({publisher}) => {
         {info.publisher}
       </motion.h1>
 
+      <div className='headerBgFilter'></div>
       <motion.div 
         initial="hidden"
         animate="visible"
