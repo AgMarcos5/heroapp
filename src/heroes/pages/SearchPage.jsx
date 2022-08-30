@@ -1,10 +1,14 @@
 import React, { useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
+import { motion} from "framer-motion"
 
 import queryString from 'query-string'
 import { HeroCard } from "../components/heroCard/HeroCard";
 import { useHeroes } from "../../hooks/useHeroes";
+
+import groot1 from '../../assets/img/groot1.png'
+import groot2 from '../../assets/img/groot2.png'
 
 import './searchpage.scss'
 
@@ -30,7 +34,6 @@ export const SearchPage = () => {
 
   return (
     <div className="search_page">
-      <h1>Search</h1>
         <div className="search-container">
           <form
             onSubmit={onSearchSubmit}
@@ -49,21 +52,40 @@ export const SearchPage = () => {
         </div>
 
         <div className="results">
+        
+
           <div 
             className="alert alert-primary"
             style={{display: q === '' ? '' : 'none'}}
           >
-            Search a hero
+          
+          <motion.div 
+            initial={{y: 10,opacity: .6}}
+            animate={{y: 0,opacity: 1}}
+          >
+            <p>Search a hero</p>
+            <img src={groot1} alt="groot"/>
+            
+          </motion.div>
           </div>
+
+          
+
 
           {
             !heroes?.length && q!== '' && (
+              <motion.div 
+                initial={{y: 10,opacity: .6}}
+                animate={{y: 0,opacity: 1}}
+              >
               <div className="alert alert-danger">
-                No hero with <b>{q}</b>
+                <p>No hero with <b>{q}</b></p>
+                <img src={groot2} alt="groot"/>
               </div>
+              </motion.div>
             )
           }
-
+        
           {
             heroes?.map(
               hero => <HeroCard key={hero.id} {...hero}/>
@@ -71,6 +93,7 @@ export const SearchPage = () => {
           }
 
         </div>
+        
     </div>
   );
 };

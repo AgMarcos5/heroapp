@@ -133,3 +133,10 @@ nav {
         background: hsl(0deg 0% 100% / 10%) !important;
     }
 }
+
+@media (max-width:370px)
+{
+    nav{
+        padding: 0 10px;
+    }
+}
