@@ -1,25 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "./login.scss";
+import React, { useEffect, useState} from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import './login.scss'
 
-import { motion} from "framer-motion";
-import { useForm } from "../../hooks/useForm";
+import { motion} from "framer-motion"
+import { useForm } from '../../hooks/useForm'
 
-import {
-  variantsForm,
-} from "./variantsLogin";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  startGoogleSignIn,
-  startLoginWithEmailPassword,
-} from "../../store/auth/thunks";
-import { TextField } from "@mui/material";
+import {variantsForm} from './variantsLogin'
+import { useDispatch, useSelector } from 'react-redux'
+import { startCreatingUserWithEmail } from '../../store/auth/thunks'
+import { Button, Grid, TextField, Typography } from "@mui/material";
 
-import GoogleIcon from '@mui/icons-material/Google';
 
 const formData = {
   email: "",
-  password: ""
+  password: "",
+  displayName: "",
 };
 
 const formValidations = {
@@ -35,22 +30,32 @@ const formValidations = {
     "La contraseña debe tener al menos 6 caracteres",
     ]
   ],
+  displayName: [
+    [(value) => value.length >= 1, "El nombre es obligatorio"],
+    [(value) => value.length >= 6, "El nombre debe tener al menos 6 letras"]
+  ],
 };
 
-export const LoginPage = () => {
+
+
+export const RegisterPage = () => {
+
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
-  const { status } = useSelector((state) => state.auth);
 
   const [formSubmited, setFormSubmited] = useState(false);  
+  
+  const { status } = useSelector((state) => state.auth);
 
   const {
     formState,
+    displayName,
     email,
     password,
     onInputChange,
     isFormValid,
+    displayNameValid,
     emailValid,
     passwordValid,
   } = useForm(formData, formValidations);
@@ -59,38 +64,49 @@ export const LoginPage = () => {
     event.preventDefault();
     setFormSubmited(true);
     if(!isFormValid) return;
-    dispatch(startLoginWithEmailPassword({ email, password }));
+    dispatch(startCreatingUserWithEmail(formState))
   };
 
-  const onGoogleSignIn = () => {
-    dispatch(startGoogleSignIn());
-  };
-
+  
   useEffect(() => {
     if (status === "authenticated") navigate("/marvel", { replace: true });
   }, [status]);
-
+  
+    
   return (
-    <>
-      <motion.span
+      <>        
+        <motion.span
         key="form"
         initial="hidden"
         animate="visible"
         variants={variantsForm}
-        exit={{
-          x: -50,
-          opacity: 0,
-          transition: {
-            ease: "backInOut",
-            duration: 0.8,
-            delay: 0.3,
-          },
-        }}
-      >
-        <form onSubmit={onFormSubmit} autoComplete="off">
+        exit={{ x: -50, 
+                opacity: 0, 
+                transition: {
+                  ease: "backInOut",
+                  duration: 0.8,
+                  delay: .3
+                } 
+              }}
+        >
 
-        
-        <TextField
+          <form onSubmit={onFormSubmit} autoComplete="off">
+            
+            <TextField
+            variant="filled"
+              className='input'
+              label="Nombre de usuario"
+              type="text"
+              placeholder="Nombre de usuario"
+              fullWidth
+              name="displayName"
+              value={displayName}
+              onChange={onInputChange}
+              error={!!displayNameValid && formSubmited}
+              helperText={formSubmited && displayNameValid}
+            />
+
+            <TextField
             variant="filled"
               className='input'
               label="Correo"
@@ -118,20 +134,17 @@ export const LoginPage = () => {
               error={!!passwordValid && formSubmited}
               helperText={formSubmited && passwordValid}
             />
-
-          <div className="buttons">
-            <button className="btn" type="submit">
-              Comenzar
+              
+            <button 
+                className='btn'
+                type='submit'>
+                Crear cuenta
             </button>
 
-            <button className="btn" type="button" onClick={onGoogleSignIn}>
-              <GoogleIcon/>
-            </button>
-          </div>
+            <Link to="/auth/login">Ya tengo una cuenta</Link>
+          </form>
 
-          <Link to="/auth/register">Crear una cuenta</Link>
-        </form>
-      </motion.span>
-    </>
-  );
-};
+        </motion.span>
+    </> 
+  )
+}

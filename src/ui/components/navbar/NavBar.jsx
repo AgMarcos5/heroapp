@@ -6,6 +6,8 @@ import avatar from '../../../assets/img/avatar.png'
 import { AuthContext } from "../../../auth/context/AuthContext";
 
 import './navbar.scss'
+import { useDispatch, useSelector } from "react-redux";
+import { startLogout } from "../../../store/auth/thunks";
 
 
 export const Navbar = () => {
@@ -17,13 +19,13 @@ export const Navbar = () => {
 
   const navigate = useNavigate();
 
+  const {displayName} = useSelector((state) => state.auth);
   const { user, logout } = useContext(AuthContext);
 
+  const dispatch = useDispatch();
+
   const onLogout = () => {
-    logout();
-    navigate("/login", {
-      replace: true,
-    });
+    dispatch(startLogout())
   };
 
   
@@ -52,7 +54,7 @@ export const Navbar = () => {
           <img src={avatar} className="avatar" onClick={() => setShow(!show)}alt="avatar"/>
           <div className={`user ${show ? "show" : ""}`}>
             <span >
-              {user?.username}
+              {displayName}
             </span>
             <button onClick={onLogout} >
               Logout
