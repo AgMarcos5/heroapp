@@ -1,11 +1,13 @@
 import { Alert, Snackbar } from '@mui/material';
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { resetError } from '../../store/auth/authSlice';
 
 export const AuthErrorAlert = () => {
 
     const {errorMessage} = useSelector( state => state.auth)
     const [open, setOpen] = useState(!!errorMessage);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         setOpen(!!errorMessage)
@@ -16,6 +18,7 @@ export const AuthErrorAlert = () => {
             return;
         }
         setOpen(false);
+        dispatch(resetError())
     }
     
 

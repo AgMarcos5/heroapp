@@ -46,7 +46,6 @@ export const Donut = ({series = [10,10,10,10,10,10]}) => {
                         260 
                         : 
                         width - 50
-  console.log(width)
   return (
     <>
 

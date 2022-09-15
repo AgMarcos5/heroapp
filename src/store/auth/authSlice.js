@@ -32,10 +32,13 @@ export const authSlice = createSlice({
         checkingCredentials: (state)=>{
             state.status = 'checking'
         },
+        resetError: (state) => {
+            state.errorMessage = null;
+        }
             
     }
 })
 
-export const { login, logout, checkingCredentials } = authSlice.actions;
+export const { login, logout, checkingCredentials, resetError } = authSlice.actions;
 
 export default authSlice.reducer;

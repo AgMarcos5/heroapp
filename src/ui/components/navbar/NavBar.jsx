@@ -1,9 +1,8 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
 import search from '../../../assets/img/search.png'
 import avatar from '../../../assets/img/avatar.png'
-import { AuthContext } from "../../../auth/context/AuthContext";
 
 import './navbar.scss'
 import { useDispatch, useSelector } from "react-redux";
@@ -20,7 +19,6 @@ export const Navbar = () => {
   const navigate = useNavigate();
 
   const {displayName} = useSelector((state) => state.auth);
-  const { user, logout } = useContext(AuthContext);
 
   const dispatch = useDispatch();
 
