@@ -3,11 +3,11 @@ import { useHeroes } from '../../../hooks/useHeroes'
 import { NavLink, useNavigate} from 'react-router-dom';
 import './publishers.scss'
 
-import marvelImg from '../../../assets/img/marvel.png'
-import dcImg from '../../../assets/img/dc.png'
+import marvelImg from '../../../assets/img/marvel.webp'
+import dcImg from '../../../assets/img/dc.webp'
 
-import marvelImgHover from '../../../assets/img/marvel_hover.png'
-import dcImgHover from '../../../assets/img/dc_hover.png'
+import marvelImgHover from '../../../assets/img/marvel_hover.webp'
+import dcImgHover from '../../../assets/img/dc_hover.webp'
 
 import { DropDown } from '../../../ui/components/dropdown/DropDown';
 

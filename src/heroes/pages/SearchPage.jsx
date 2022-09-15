@@ -7,8 +7,8 @@ import queryString from 'query-string'
 import { HeroCard } from "../components/heroCard/HeroCard";
 import { useHeroes } from "../../hooks/useHeroes";
 
-import groot1 from '../../assets/img/groot1.png'
-import groot2 from '../../assets/img/groot2.png'
+import groot1 from '../../assets/img/groot1.webp'
+import groot2 from '../../assets/img/groot2.webp'
 
 import './searchpage.scss'
 

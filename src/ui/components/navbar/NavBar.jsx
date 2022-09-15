@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
-import search from '../../../assets/img/search.png'
-import avatar from '../../../assets/img/avatar.png'
+import search from '../../../assets/img/search.webp'
+import avatar from '../../../assets/img/avatar.webp'
 
 import './navbar.scss'
 import { useDispatch, useSelector } from "react-redux";

@@ -11,7 +11,7 @@ import { useViewport } from '../../hooks/useViewport'
 import { useNavigate } from 'react-router-dom'
 import { DropDown } from '../../ui/components/dropdown/DropDown'
 
-import filter from '../../assets/img/filter.png'
+import filter from '../../assets/img/filter.webp'
 
 const sortPowerStats = ["intelligence","strength","speed","durability","power","combat"]
 

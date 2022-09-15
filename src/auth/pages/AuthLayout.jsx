@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import './login.scss'
 
 import { motion, useAnimation} from "framer-motion"
-import batman from '../../assets/img/batman_ch.png'
+import batman from '../../assets/img/batman_ch.webp'
 
 import {variantsBg1, variantsBg2, variantsHeader} from './variantsLogin'
 import { AuthErrorAlert } from '../components/AuthErrorAlert'

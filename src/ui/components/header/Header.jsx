@@ -4,8 +4,8 @@ import React, { useLayoutEffect, useState, useRef } from 'react'
 
 import { motion, useScroll, useTransform } from "framer-motion"
 
-import spidermanImg from "../../../assets/img/spiderman.png"
-import batmanImg from "../../../assets/img/batman.png"
+import spidermanImg from "../../../assets/img/spiderman.webp"
+import batmanImg from "../../../assets/img/batman.webp"
 
 import './header.scss'
 
