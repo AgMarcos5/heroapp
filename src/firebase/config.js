@@ -2,15 +2,26 @@ import { initializeApp } from "firebase/app";
 
 import {getAuth} from 'firebase/auth';
 import {getFirestore} from 'firebase/firestore/lite'
+import { getEnvironment } from "../helpers/getEnvironment";
+
+const {
+  VITE_APIKEY,
+  VITE_AUTHDOMAIN,
+  VITE_PROJECTID,
+  VITE_STORAGEBUCKET,
+  VITE_MESSAGINGSENDERID,
+  VITE_APPID,
+  VITE_MEASUREMENTID,
+} = getEnvironment();
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDCfbDyr0_63GnR6IGc6JnWzKPmcXnNoYc",
-  authDomain: "heroapp-48e0f.firebaseapp.com",
-  projectId: "heroapp-48e0f",
-  storageBucket: "heroapp-48e0f.appspot.com",
-  messagingSenderId: "746866406537",
-  appId: "1:746866406537:web:4ab687d055e5908dfa8258",
-  measurementId: "G-6ZDXEM4M03"
+  apiKey: VITE_APIKEY,
+  authDomain: VITE_AUTHDOMAIN,
+  projectId: VITE_PROJECTID,
+  storageBucket: VITE_STORAGEBUCKET,
+  messagingSenderId: VITE_MESSAGINGSENDERID,
+  appId: VITE_APPID,
+  measurementId: VITE_MEASUREMENTID,
 };
 
 const FirebaseApp = initializeApp(firebaseConfig);
