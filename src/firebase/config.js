@@ -2,8 +2,9 @@ import { initializeApp } from "firebase/app";
 
 import {getAuth} from 'firebase/auth';
 import {getFirestore} from 'firebase/firestore/lite'
-import { getEnvironment } from "../helpers/getEnvironment";
+//import { getEnvironment } from "../helpers/getEnvironment";
 
+/*
 const {
   VITE_APIKEY,
   VITE_AUTHDOMAIN,
@@ -13,15 +14,16 @@ const {
   VITE_APPID,
   VITE_MEASUREMENTID,
 } = getEnvironment();
+*/
 
 const firebaseConfig = {
-  apiKey: VITE_APIKEY,
-  authDomain: VITE_AUTHDOMAIN,
-  projectId: VITE_PROJECTID,
-  storageBucket: VITE_STORAGEBUCKET,
-  messagingSenderId: VITE_MESSAGINGSENDERID,
-  appId: VITE_APPID,
-  measurementId: VITE_MEASUREMENTID,
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
+  measurementId: import.meta.env.VITE_MEASUREMENTID,
 };
 
 const FirebaseApp = initializeApp(firebaseConfig);
